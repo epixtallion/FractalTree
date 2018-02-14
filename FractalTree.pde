@@ -1,7 +1,7 @@
 private double fractionLength = .3;
 private int smallestBranch = 10;
 private double branchAngle = .2;
-private Snowball[] snow = new Snowball[30];
+private Snowball[] snow = new Snowball[35];
 public void setup()
 {
 	size(640,480);
@@ -11,19 +11,22 @@ public void setup()
 public void draw()
 {
 	background(186, 231, 242);
-	stroke(86, 81, 67);
-	strokeWeight(1);
-	line(320,380,320,350);
-	drawBranches(320,350,90,0);
 	stroke(255);
 	for (Snowball s : snow){
 		s.move();
 		s.show();
 	}
+	stroke(86, 81, 67);
+	strokeWeight(1);
+	line(320,380,320,350);
+	drawBranches(320,350,90,0);
 	fill(202, 239, 184);
 	noStroke();
 	rect(0, 380, 640, 180);
-	if(fractionLength <= 0.72) fractionLength+=0.0005;
+	if(fractionLength <= 0.78){
+		fractionLength+=0.0005;
+		branchAngle+=0.0002;
+	}
 }
 public void drawBranches(int x, int y, double branchLength, double angle)
 {

@@ -27,19 +27,22 @@ public void setup()
 public void draw()
 {
 	background(186, 231, 242);
-	stroke(86, 81, 67);
-	strokeWeight(1);
-	line(320,380,320,350);
-	drawBranches(320,350,90,0);
 	stroke(255);
 	for (Snowball s : snow){
 		s.move();
 		s.show();
 	}
+	stroke(86, 81, 67);
+	strokeWeight(1);
+	line(320,380,320,350);
+	drawBranches(320,350,90,0);
 	fill(202, 239, 184);
 	noStroke();
 	rect(0, 380, 640, 180);
-	if(fractionLength <= 0.72f) fractionLength+=0.0005f;
+	if(fractionLength <= 0.78f){
+		fractionLength+=0.0005f;
+		branchAngle+=0.0002f;
+	}
 }
 public void drawBranches(int x, int y, double branchLength, double angle)
 {
